@@ -1,7 +1,8 @@
 'use strict'
 
+const store = require('./../store')
+
 const signUpSuccess = () => {
-  console.log('Signed Up')
   $('#message').text('Signed up successfully!')
 }
 
@@ -10,6 +11,7 @@ const signUpFailure = () => {
 }
 
 const signInSuccess = data => {
+  store.user = data.user
   $('#message').text('Signed in successfully!')
 }
 
@@ -26,6 +28,7 @@ const changePasswordFailure = () => {
 }
 
 const signOutSuccess = () => {
+  store.user = null
   $('#message').text('Signed out successfully')
 }
 

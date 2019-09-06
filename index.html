@@ -13,7 +13,6 @@
   </head>
 
   <body>
-    <h1>sign up</h1>
     <section id="authentication">
       <h2>Authentication</h2>
       <div id="message"></div>
@@ -45,6 +44,21 @@
       <form id="sign-out" class="border">
         <fieldset>
           <button>Sign out</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <section id="roster">
+      <h2>Roster</h2>
+      <div id="roster-message"></div>
+      <form id="create-roster" class="border">
+        <fieldset>
+          <legend>Create roster</legend>
+          <input type="text" name="roster[name]" placeholder="Team Name">
+          <input type="text" name="roster[season]" placeholder="Season">
+          <input type="text" name="roster[league_size]" placeholder="League Size">
+          <input type="text" name="roster[scoring_format]" placeholder="Scoring Format">
+          <button>Create roster</button>
         </fieldset>
       </form>
     </section>
