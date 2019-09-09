@@ -25,7 +25,18 @@ const updateRoster = data => {
   })
 }
 
+const deleteRoster = data => {
+  return $.ajax({
+    url: config.apiUrl + '/rosters/' + data.roster.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createRoster,
-  updateRoster
+  updateRoster,
+  deleteRoster
 }

@@ -16,9 +16,19 @@ const updateRosterFailure = () => {
   $('#roster-message').text('Update roster failed')
 }
 
+const deleteRosterSuccess = () => {
+  $('#roster-message').text('Roster deleted successfully!')
+}
+
+const deleteRosterFailure = () => {
+  $('#roster-message').text('Delete roster failed')
+}
+
 module.exports = {
   createRosterSuccess,
   createRosterFailure,
   updateRosterSuccess,
-  updateRosterFailure
+  updateRosterFailure,
+  deleteRosterSuccess,
+  deleteRosterFailure
 }
