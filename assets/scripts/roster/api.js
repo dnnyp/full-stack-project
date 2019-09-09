@@ -25,7 +25,7 @@ const updateRoster = data => {
   })
 }
 
-const deleteRoster = data => {
+const destroyRoster = data => {
   return $.ajax({
     url: config.apiUrl + '/rosters/' + data.roster.id,
     method: 'DELETE',
@@ -38,5 +38,5 @@ const deleteRoster = data => {
 module.exports = {
   createRoster,
   updateRoster,
-  deleteRoster
+  destroyRoster
 }

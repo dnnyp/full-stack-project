@@ -24,25 +24,25 @@ const onUpdateRoster = event => {
     .catch(ui.updateRosterFailure)
 }
 
-const onDeleteRoster = event => {
+const onDestroyRoster = event => {
   event.preventDefault()
 
   const data = getFormFields(event.target)
 
-  api.deleteRoster(data)
-    .then(ui.deleteRosterSuccess)
-    .catch(ui.deleteRosterFailure)
+  api.destroyRoster(data)
+    .then(ui.destroyRosterSuccess)
+    .catch(ui.destroyRosterFailure)
 }
 
 const addHandlers = () => {
   $('#create-roster').on('submit', onCreateRoster)
   $('#update-roster').on('submit', onUpdateRoster)
-  $('#delete-roster').on('submit', onDeleteRoster)
+  $('#delete-roster').on('submit', onDestroyRoster)
 }
 
 module.exports = {
   onCreateRoster,
   onUpdateRoster,
-  onDeleteRoster,
+  onDestroyRoster,
   addHandlers
 }
