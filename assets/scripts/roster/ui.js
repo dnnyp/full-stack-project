@@ -1,5 +1,17 @@
 'use strict'
 
+const showRosterTemplate = require('../templates/roster.handlebars')
+
+const showRosterSuccess = data => {
+  $('#roster-message').text('Roster retrieved successfully!')
+  const showRosterHtml = showRosterTemplate({ roster: data.roster })
+  $('#roster-content').html(showRosterHtml)
+}
+
+const showRosterFailure = () => {
+  $('#roster-message').text('Retrieve roster failed')
+}
+
 const createRosterSuccess = () => {
   $('#roster-message').text('Roster created successfully!')
 }
@@ -25,6 +37,8 @@ const destroyRosterFailure = () => {
 }
 
 module.exports = {
+  showRosterSuccess,
+  showRosterFailure,
   createRosterSuccess,
   createRosterFailure,
   updateRosterSuccess,

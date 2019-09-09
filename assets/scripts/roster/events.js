@@ -4,6 +4,16 @@ const api = require('./api')
 const getFormFields = require('./../../../lib/get-form-fields')
 const ui = require('./ui')
 
+const onShowRoster = event => {
+  event.preventDefault()
+
+  const data = getFormFields(event.target)
+
+  api.showRoster(data)
+    .then(ui.showRosterSuccess)
+    .catch(ui.showRosterFailure)
+}
+
 const onCreateRoster = event => {
   event.preventDefault()
 
@@ -38,9 +48,11 @@ const addHandlers = () => {
   $('#create-roster').on('submit', onCreateRoster)
   $('#update-roster').on('submit', onUpdateRoster)
   $('#delete-roster').on('submit', onDestroyRoster)
+  $('#show-roster').on('submit', onShowRoster)
 }
 
 module.exports = {
+  onShowRoster,
   onCreateRoster,
   onUpdateRoster,
   onDestroyRoster,
