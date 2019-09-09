@@ -14,6 +14,18 @@ const createRoster = data => {
   })
 }
 
+const updateRoster = data => {
+  return $.ajax({
+    url: config.apiUrl + '/rosters/' + data.roster.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
-  createRoster
+  createRoster,
+  updateRoster
 }
