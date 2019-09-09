@@ -37,9 +37,9 @@ const updateRoster = data => {
   })
 }
 
-const destroyRoster = data => {
+const destroyRoster = id => {
   return $.ajax({
-    url: config.apiUrl + '/rosters/' + data.roster.id,
+    url: config.apiUrl + '/rosters/' + id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
