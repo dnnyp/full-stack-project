@@ -4,6 +4,14 @@ const api = require('./api')
 const getFormFields = require('./../../../lib/get-form-fields')
 const ui = require('./ui')
 
+const onIndexRoster = event => {
+  event.preventDefault()
+
+  api.indexRoster()
+    .then(ui.indexRosterSuccess)
+    .catch(ui.indexRosterFailure)
+}
+
 const onShowRoster = event => {
   event.preventDefault()
 
@@ -49,9 +57,11 @@ const addHandlers = () => {
   $('#update-roster').on('submit', onUpdateRoster)
   $('#delete-roster').on('submit', onDestroyRoster)
   $('#show-roster').on('submit', onShowRoster)
+  $('#index-roster').on('click', onIndexRoster)
 }
 
 module.exports = {
+  onIndexRoster,
   onShowRoster,
   onCreateRoster,
   onUpdateRoster,

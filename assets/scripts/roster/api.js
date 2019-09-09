@@ -3,6 +3,12 @@
 const config = require('./../config')
 const store = require('./../store')
 
+const indexRoster = () => {
+  return $.ajax({
+    url: config.apiUrl + '/rosters'
+  })
+}
+
 const showRoster = data => {
   return $.ajax({
     url: config.apiUrl + '/rosters/' + data.roster.id
@@ -42,6 +48,7 @@ const destroyRoster = data => {
 }
 
 module.exports = {
+  indexRoster,
   showRoster,
   createRoster,
   updateRoster,
