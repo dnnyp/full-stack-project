@@ -35,6 +35,7 @@ const changePasswordFailure = () => {
 const signOutSuccess = () => {
   store.user = null
   hideOnSignout()
+  showOnSignout()
   $('#message').text('Signed out successfully')
 }
 
