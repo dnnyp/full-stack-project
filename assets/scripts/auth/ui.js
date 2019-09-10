@@ -14,6 +14,7 @@ const signUpFailure = () => {
 const signInSuccess = data => {
   store.user = data.user
   hideOnSignin()
+  showOnSignin()
   $('#message').text('Signed in successfully!')
   $('#signin-modal').modal('toggle')
 }
@@ -51,6 +52,11 @@ const hideOnSignout = () => {
   $('#signout-button').addClass('d-none')
 }
 
+const showOnSignin = () => {
+  $('#changepw-button').removeClass('d-none')
+  $('#signout-button').removeClass('d-none')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -61,5 +67,6 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   hideOnSignin,
-  hideOnSignout
+  hideOnSignout,
+  showOnSignin
 }
