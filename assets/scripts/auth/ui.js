@@ -20,11 +20,12 @@ const signInSuccess = data => {
   showOnSignin()
   $('#message').text('Signed in successfully!')
   $('#signin-modal').modal('toggle')
+  $('#signin-error').collapse('hide')
   $('#sign-in').trigger('reset')
 }
 
 const signInFailure = () => {
-  $('#message').text('Sign in failed')
+  $('#signin-error').collapse('show')
   $('#sign-in').trigger('reset')
 }
 
