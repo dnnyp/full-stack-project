@@ -23,6 +23,7 @@ const signInFailure = () => {
 
 const changePasswordSuccess = () => {
   $('#message').text('Changed password successfully')
+  $('#changepw-modal').modal('toggle')
 }
 
 const changePasswordFailure = () => {

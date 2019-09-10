@@ -29,6 +29,9 @@
           <li class="nav-item">
             <button class="btn btn-primary" data-toggle="modal" data-target="#signin-modal">Sign In</button>
           </li>
+          <li class="nav-item">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#changepw-modal">Change Password</button>
+          </li>
         </ul>
       </div>
     </nav>
@@ -90,19 +93,37 @@
         </div>
       </div>
     </div>
+    <div class="modal fade" id="changepw-modal" tabindex="-1" role="dialog" aria-labelledby="changepw-modal-label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="changepw-modal-label">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="change-password">
+              <div class="form-group">
+                <label for="old-password">Old Password</label>
+                <input type="password" class="form-control" id="old-password" name="passwords[old]" placeholder="Old Password">
+              </div>
+              <div class="form-group">
+                <label for="new-password">New Password</label>
+                <input type="password" class="form-control" id="new-password" name="passwords[new]" placeholder="New Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <main>
       <section id="authentication">
         <h2>Authentication</h2>
         <div id="message"></div>
-        <form id="change-password" class="border">
-          <fieldset>
-            <legend>Change password</legend>
-            <input type="password" name="passwords[old]" placeholder="Old Password">
-            <input type="password" name="passwords[new]" placeholder="New Password">
-            <button>Change password</button>
-          </fieldset>
-        </form>
         <form id="sign-out" class="border">
           <fieldset>
             <button>Sign out</button>
