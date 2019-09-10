@@ -57,6 +57,11 @@ const showOnSignin = () => {
   $('#signout-button').removeClass('d-none')
 }
 
+const showOnSignout = () => {
+  $('#signup-button').removeClass('d-none')
+  $('#signin-button').removeClass('d-none')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -68,5 +73,6 @@ module.exports = {
   signOutFailure,
   hideOnSignin,
   hideOnSignout,
-  showOnSignin
+  showOnSignin,
+  showOnSignout
 }
