@@ -3,10 +3,10 @@
 const store = require('./../store')
 
 const signUpSuccess = () => {
-  $('#message').text('Signed up successfully!')
   $('#signup-modal').modal('toggle')
   $('#signup-error').collapse('hide')
   $('#sign-up').trigger('reset')
+  newAlert('success', 'Sign up success', 1500)
 }
 
 const signUpFailure = () => {
@@ -18,10 +18,10 @@ const signInSuccess = data => {
   store.user = data.user
   hideOnSignin()
   showOnSignin()
-  $('#message').text('Signed in successfully!')
   $('#signin-modal').modal('toggle')
   $('#signin-error').collapse('hide')
   $('#sign-in').trigger('reset')
+  newAlert('success', 'Signed in successfully! User is ' + store.user.email, 2000)
 }
 
 const signInFailure = () => {
@@ -30,10 +30,10 @@ const signInFailure = () => {
 }
 
 const changePasswordSuccess = () => {
-  $('#message').text('Changed password successfully')
   $('#changepw-modal').modal('toggle')
   $('#changepw-error').collapse('hide')
   $('#change-password').trigger('reset')
+  newAlert('success', 'Changed password successfully', 1500)
 }
 
 const changePasswordFailure = () => {
@@ -46,11 +46,11 @@ const signOutSuccess = () => {
   store.user = null
   hideOnSignout()
   showOnSignout()
-  $('#message').text('Signed out successfully')
+  newAlert('success', 'Signed out successfully', 2000)
 }
 
 const signOutFailure = () => {
-  $('#message').text('Sign out failed')
+  newAlert('danger', 'Sign out failed', 1500)
 }
 
 const hideOnSignin = () => {
@@ -73,6 +73,11 @@ const showOnSignout = () => {
   $('#signin-button').removeClass('d-none')
 }
 
+const newAlert = (type, message, delay) => {
+  $('#message-container').append(`<div class="alert alert-${type} no-select ml-2" role="alert">${message}</div>`)
+  $('.alert').delay(delay).fadeOut(2000)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -85,5 +90,6 @@ module.exports = {
   hideOnSignin,
   hideOnSignout,
   showOnSignin,
-  showOnSignout
+  showOnSignout,
+  newAlert
 }
