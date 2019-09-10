@@ -5,11 +5,12 @@ const store = require('./../store')
 const signUpSuccess = () => {
   $('#message').text('Signed up successfully!')
   $('#signup-modal').modal('toggle')
+  $('#signup-error').collapse('hide')
   $('#sign-up').trigger('reset')
 }
 
 const signUpFailure = () => {
-  $('#message').text('Sign up failed')
+  $('#signup-error').collapse('show')
   $('#sign-up').trigger('reset')
 }
 
