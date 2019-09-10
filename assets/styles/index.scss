@@ -5,29 +5,30 @@ $espn-maroon: #b40900;
 $espn-green: #3db54a;
 
 @import '~bootstrap/scss/bootstrap';
-@import 'theme';
 
 body {
-  @include make-container;
-
   .navbar-brand {
     font-family: 'ESP_Bold_Italic', sans-serif;
   }
 
-  .roster-content {
-    @include make-row;
+  .roster-container {
+    @include make-container;
 
-    section {
-      @include make-col-ready;
-      @include media-breakpoint-up(md) {
-        @include make-col(12);
-      }
-      @include media-breakpoint-up(lg) {
-        @include make-col(6);
-      }
+    .roster-content {
+      @include make-row;
 
-      background: $white;
-      border: 1px solid $black;
+      section {
+        @include make-col-ready;
+        @include media-breakpoint-up(md) {
+          @include make-col(12);
+        }
+        @include media-breakpoint-up(lg) {
+          @include make-col(6);
+        }
+
+        background: $white;
+        border: 1px solid $black;
+      }
     }
   }
 }

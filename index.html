@@ -24,7 +24,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Sign Up</a>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#signup-modal">Sign Up</button>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Sign In</a>
@@ -33,79 +33,103 @@
       </div>
     </nav>
 
-    <!-- Authentication modal -->
-    <div class="modal fade" id="authentication-modal" tabindex="-1" role="dialog" aria-labelledby="authentication-modal=label" aria-hidden="true">
-
-    </div>
-
-    <section id="authentication">
-      <h2>Authentication</h2>
-      <div id="message"></div>
-      <form id="sign-up" class="border">
-        <fieldset>
-          <legend>Sign up</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-          <button>Sign up</button>
-        </fieldset>
-      </form>
-      <form id="sign-in" class="border">
-        <fieldset>
-          <legend>Sign in</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <button>Sign in</button>
-        </fieldset>
-      </form>
-      <form id="change-password" class="border">
-        <fieldset>
-          <legend>Change password</legend>
-          <input type="password" name="passwords[old]" placeholder="Old Password">
-          <input type="password" name="passwords[new]" placeholder="New Password">
-          <button>Change password</button>
-        </fieldset>
-      </form>
-      <form id="sign-out" class="border">
-        <fieldset>
-          <button>Sign out</button>
-        </fieldset>
-      </form>
+    <!-- Authentication modals -->
+    <section>
+      <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="signup-modal-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="signup-modal-label">Sign Up</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="sign-up">
+                <div class="form-group">
+                  <label for="signup-email">Email</label>
+                  <input type="email" class="form-control" id="signup-email" name="credentials[email]" aria-describedby="emailHelp" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label for="signup-password">Password</label>
+                  <input type="password" class="form-control" id="signup-password" name="credentials[password]" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <label for="signup-password-confirm">Password Confirmation</label>
+                  <input type="password" class="form-control" id="signup-password-confirm" name="credentials[password_confirmation]" placeholder="Password Confirmation">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="roster">
-      <h2>Roster</h2>
-      <div id="roster-message"></div>
-      <form id="create-roster" class="border">
-        <fieldset>
-          <legend>Create roster</legend>
-          <input type="text" name="roster[name]" placeholder="Team Name">
-          <input type="text" name="roster[season]" placeholder="Season">
-          <input type="text" name="roster[league_size]" placeholder="League Size">
-          <input type="text" name="roster[scoring_format]" placeholder="Scoring Format">
-          <button>Create roster</button>
-        </fieldset>
-      </form>
-      <form id="update-roster" class="border">
-        <fieldset>
-          <legend>Update roster</legend>
-          <input type="text" name="roster[id]" placeholder="Roster ID">
-          <input type="text" name="roster[name]" placeholder="Team Name">
-          <input type="text" name="roster[season]" placeholder="Season">
-          <input type="text" name="roster[league_size]" placeholder="League Size">
-          <input type="text" name="roster[scoring_format]" placeholder="Scoring Format">
-          <button>Update roster</button>
-        </fieldset>
-      </form>
-      <form id="show-roster" class="border">
-        <fieldset>
-          <legend>Show roster</legend>
-          <input type="text" name="roster[id]" placeholder="Roster ID">
-          <button>Show roster</button>
-        </fieldset>
-      </form>
-      <button id="index-roster">Show all rosters</button>
-      <div id="roster-content" class="roster-content"></div>
-    </section>
+    <main>
+      <section id="authentication">
+        <h2>Authentication</h2>
+        <div id="message"></div>
+        <form id="sign-in" class="border">
+          <fieldset>
+            <legend>Sign in</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Password">
+            <button>Sign in</button>
+          </fieldset>
+        </form>
+        <form id="change-password" class="border">
+          <fieldset>
+            <legend>Change password</legend>
+            <input type="password" name="passwords[old]" placeholder="Old Password">
+            <input type="password" name="passwords[new]" placeholder="New Password">
+            <button>Change password</button>
+          </fieldset>
+        </form>
+        <form id="sign-out" class="border">
+          <fieldset>
+            <button>Sign out</button>
+          </fieldset>
+        </form>
+      </section>
+
+      <section id="roster">
+        <h2>Roster</h2>
+        <div id="roster-message"></div>
+        <form id="create-roster" class="border">
+          <fieldset>
+            <legend>Create roster</legend>
+            <input type="text" name="roster[name]" placeholder="Team Name">
+            <input type="text" name="roster[season]" placeholder="Season">
+            <input type="text" name="roster[league_size]" placeholder="League Size">
+            <input type="text" name="roster[scoring_format]" placeholder="Scoring Format">
+            <button>Create roster</button>
+          </fieldset>
+        </form>
+        <form id="update-roster" class="border">
+          <fieldset>
+            <legend>Update roster</legend>
+            <input type="text" name="roster[id]" placeholder="Roster ID">
+            <input type="text" name="roster[name]" placeholder="Team Name">
+            <input type="text" name="roster[season]" placeholder="Season">
+            <input type="text" name="roster[league_size]" placeholder="League Size">
+            <input type="text" name="roster[scoring_format]" placeholder="Scoring Format">
+            <button>Update roster</button>
+          </fieldset>
+        </form>
+        <form id="show-roster" class="border">
+          <fieldset>
+            <legend>Show roster</legend>
+            <input type="text" name="roster[id]" placeholder="Roster ID">
+            <button>Show roster</button>
+          </fieldset>
+        </form>
+        <button id="index-roster">Show all rosters</button>
+      </section>
+      <section class="roster-container">
+        <div id="roster-content" class="roster-content"></div>
+      </section>
+    </main>
   </body>
 </html>

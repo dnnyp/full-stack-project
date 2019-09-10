@@ -4,6 +4,7 @@ const store = require('./../store')
 
 const signUpSuccess = () => {
   $('#message').text('Signed up successfully!')
+  $('#signup-modal').modal('toggle')
 }
 
 const signUpFailure = () => {
