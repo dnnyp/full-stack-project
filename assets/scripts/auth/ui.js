@@ -32,11 +32,13 @@ const signInFailure = () => {
 const changePasswordSuccess = () => {
   $('#message').text('Changed password successfully')
   $('#changepw-modal').modal('toggle')
+  $('#changepw-error').collapse('hide')
   $('#change-password').trigger('reset')
 }
 
 const changePasswordFailure = () => {
   $('#message').text('Change password failed')
+  $('#changepw-error').collapse('show')
   $('#change-password').trigger('reset')
 }
 
