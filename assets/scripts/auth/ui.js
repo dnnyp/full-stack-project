@@ -14,6 +14,7 @@ const signUpFailure = () => {
 const signInSuccess = data => {
   store.user = data.user
   $('#message').text('Signed in successfully!')
+  $('#signin-modal').modal('toggle')
 }
 
 const signInFailure = () => {
