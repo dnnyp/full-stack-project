@@ -13,6 +13,7 @@ const signUpFailure = () => {
 
 const signInSuccess = data => {
   store.user = data.user
+  hideOnSignin()
   $('#message').text('Signed in successfully!')
   $('#signin-modal').modal('toggle')
 }
@@ -32,11 +33,17 @@ const changePasswordFailure = () => {
 
 const signOutSuccess = () => {
   store.user = null
+  hideOnSignout()
   $('#message').text('Signed out successfully')
 }
 
 const signOutFailure = () => {
   $('#message').text('Sign out failed')
+}
+
+const hideOnSignin = () => {
+  $('#signup-button').addClass('d-none')
+  $('#signin-button').addClass('d-none')
 }
 
 const hideOnSignout = () => {
@@ -53,5 +60,6 @@ module.exports = {
   changePasswordFailure,
   signOutSuccess,
   signOutFailure,
+  hideOnSignin,
   hideOnSignout
 }
