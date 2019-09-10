@@ -5,10 +5,12 @@ const store = require('./../store')
 const signUpSuccess = () => {
   $('#message').text('Signed up successfully!')
   $('#signup-modal').modal('toggle')
+  $('#sign-up').trigger('reset')
 }
 
 const signUpFailure = () => {
   $('#message').text('Sign up failed')
+  $('#sign-up').trigger('reset')
 }
 
 const signInSuccess = data => {
@@ -17,19 +19,23 @@ const signInSuccess = data => {
   showOnSignin()
   $('#message').text('Signed in successfully!')
   $('#signin-modal').modal('toggle')
+  $('#sign-in').trigger('reset')
 }
 
 const signInFailure = () => {
   $('#message').text('Sign in failed')
+  $('#sign-in').trigger('reset')
 }
 
 const changePasswordSuccess = () => {
   $('#message').text('Changed password successfully')
   $('#changepw-modal').modal('toggle')
+  $('#change-password').trigger('reset')
 }
 
 const changePasswordFailure = () => {
   $('#message').text('Change password failed')
+  $('#change-password').trigger('reset')
 }
 
 const signOutSuccess = () => {
