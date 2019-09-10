@@ -39,6 +39,11 @@ const signOutFailure = () => {
   $('#message').text('Sign out failed')
 }
 
+const hideOnSignout = () => {
+  $('#changepw-button').addClass('d-none')
+  $('#signout-button').addClass('d-none')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -47,5 +52,6 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  hideOnSignout
 }
