@@ -57,21 +57,25 @@ const signOutFailure = () => {
 const hideOnSignin = () => {
   $('#signup-button').addClass('d-none')
   $('#signin-button').addClass('d-none')
+  $('.auth-warning').addClass('d-none')
 }
 
 const hideOnSignout = () => {
   $('#changepw-button').addClass('d-none')
   $('#signout-button').addClass('d-none')
+  $('.auth-fieldset').prop('disabled', true)
 }
 
 const showOnSignin = () => {
   $('#changepw-button').removeClass('d-none')
   $('#signout-button').removeClass('d-none')
+  $('.auth-fieldset').prop('disabled', false)
 }
 
 const showOnSignout = () => {
   $('#signup-button').removeClass('d-none')
   $('#signin-button').removeClass('d-none')
+  $('.auth-warning').removeClass('d-none')
 }
 
 module.exports = {
@@ -86,5 +90,5 @@ module.exports = {
   hideOnSignin,
   hideOnSignout,
   showOnSignin,
-  showOnSignout,
+  showOnSignout
 }
