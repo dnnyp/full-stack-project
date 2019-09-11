@@ -5,7 +5,7 @@ const showRosterTemplate = require('../templates/roster.handlebars')
 
 const indexRosterSuccess = data => {
   $('#roster-message').text('Rosters retrieved successfully!')
-  const indexRosterHtml = indexRosterTemplate({ rosters: data.rosters })
+  const indexRosterHtml = indexRosterTemplate({ rosters: data.rows })
   $('#roster-content').html(indexRosterHtml)
 }
 
