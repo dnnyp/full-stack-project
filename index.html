@@ -154,15 +154,44 @@
         </div>
         <div id="create-roster-collapse" class="collapse show" aria-labelledby="create-roster-header" data-parent="#roster-accordion">
           <div class="card-body">
-            <form id="create-roster" class="border">
-              <fieldset>
-                <legend>Create roster</legend>
-                <input type="text" name="roster[name]" placeholder="Team Name">
-                <input type="text" name="roster[season]" placeholder="Season">
-                <input type="text" name="roster[league_size]" placeholder="League Size">
-                <input type="text" name="roster[scoring_format]" placeholder="Scoring Format">
-                <button>Create roster</button>
-              </fieldset>
+            <form id="create-roster">
+              <div class="form-group">
+                <label for="create-roster-name">Team Name</label>
+                <input type="text" class="form-control" id="create-roster-name" name="roster[name]" placeholder="Lights, Kamara, Action">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="create-roster-season">Season</label>
+                  <select class="form-control" id="create-roster-season" name="roster[season]">
+                    <option>2019</option>
+                    <option>2018</option>
+                    <option>2017</option>
+                    <option>2016</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="create-roster-size">League Size</label>
+                  <select class="form-control" id="create-roster-size" name="roster[league_size]">
+                    <option selected>Choose...</option>
+                    <option>6</option>
+                    <option>8</option>
+                    <option>10</option>
+                    <option>12</option>
+                    <option>14</option>
+                    <option>16</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="create-roster-scoring">Scoring Format</label>
+                  <select class="form-control" id="create-roster-scoring" name="roster[scoring_format]">
+                    <option selected>Choose...</option>
+                    <option>Standard Scoring</option>
+                    <option>Points Per Reception (PPR)</option>
+                    <option>Individual Defensive Player (IDP)</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Create Roster</button>
             </form>
           </div>
         </div>
@@ -177,16 +206,50 @@
         </div>
         <div id="update-roster-collapse" class="collapse" aria-labelledby="update-roster-header" data-parent="#roster-accordion">
           <div class="card-body">
-            <form id="update-roster" class="border">
-              <fieldset>
-                <legend>Update roster</legend>
-                <input type="text" name="roster[id]" placeholder="Roster ID">
-                <input type="text" name="roster[name]" placeholder="Team Name">
-                <input type="text" name="roster[season]" placeholder="Season">
-                <input type="text" name="roster[league_size]" placeholder="League Size">
-                <input type="text" name="roster[scoring_format]" placeholder="Scoring Format">
-                <button>Update roster</button>
-              </fieldset>
+            <form id="update-roster">
+              <div class="form-row">
+                <div class="form-group col-md-2">
+                  <label for="update-roster-name">Roster ID</label>
+                  <input type="text" class="form-control" id="update-roster-id" name="roster[id]" placeholder="123">
+                </div>
+                <div class="form-group col-md-10">
+                  <label for="update-roster-name">Team Name</label>
+                  <input type="text" class="form-control" id="update-roster-name" name="roster[name]" placeholder="Lights, Kamara, Action">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="update-roster-season">Season</label>
+                  <select class="form-control" id="update-roster-season" name="roster[season]">
+                    <option>2019</option>
+                    <option>2018</option>
+                    <option>2017</option>
+                    <option>2016</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="update-roster-size">League Size</label>
+                  <select class="form-control" id="update-roster-size" name="roster[league_size]">
+                    <option selected>Choose...</option>
+                    <option>6</option>
+                    <option>8</option>
+                    <option>10</option>
+                    <option>12</option>
+                    <option>14</option>
+                    <option>16</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="update-roster-scoring">Scoring Format</label>
+                  <select class="form-control" id="update-roster-scoring" name="roster[scoring_format]">
+                    <option selected>Choose...</option>
+                    <option>Standard Scoring</option>
+                    <option>Points Per Reception (PPR)</option>
+                    <option>Individual Defensive Player (IDP)</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Update Roster</button>
             </form>
           </div>
         </div>
@@ -201,14 +264,14 @@
         </div>
         <div id="show-roster-body" class="collapse" aria-labelledby="show-roster-header" data-parent="#roster-accordion">
           <div class="card-body">
-            <form id="show-roster" class="border">
-              <fieldset>
-                <legend>Show roster</legend>
-                <input type="text" name="roster[id]" placeholder="Roster ID">
-                <button>Show roster</button>
-              </fieldset>
+            <form id="show-roster">
+              <div class="form-group">
+                <label for="show-roster-id">Roster ID</label>
+                <input type="text" class="form-control" id="show-roster-id" name="roster[id]" placeholder="123">
+              </div>
+              <button type="submit" class="btn btn-primary">Show Roster</button>
+              <button type="button" class="btn btn-primary" id="index-roster">Show All Rosters</button>
             </form>
-            <button id="index-roster">Show all rosters</button>
             <section class="roster-container">
               <div id="roster-content" class="roster-content"></div>
             </section>
