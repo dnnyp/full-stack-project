@@ -1,20 +1,22 @@
-<section data-id="{{roster.id}}">
-  <h6>Name:</h6>
-  <h3>
-    {{roster.name}}
-  </h3>
-  <h6>Season:</h6>
-  <h3>
-    {{roster.season}}
-  </h3>
-  <h6>League Size:</h6>
-  <h3>
-    {{roster.league_size}}
-  </h3>
-  <h6>Scoring Format:</h6>
-  <h3>
-    {{roster.scoring_format}}
-  </h3>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Team Name</th>
+      <th>Season</th>
+      <th>League Size</th>
+      <th>Scoring Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{roster.id}}</td>
+      <td>{{roster.name}}</td>
+      <td>{{roster.season}}</td>
+      <td>{{roster.league_size}}</td>
+      <td>{{roster.scoring_format}}</td>
+    </tr>
+  </tbody>
+</table>
 
-  <button class="delete-roster btn btn-danger" data-id="{{roster.id}}">Delete Roster</button>
-</section>
+<button class="delete-roster btn btn-danger" data-id="{{roster.id}}">Delete Roster</button>
