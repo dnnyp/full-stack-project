@@ -1,50 +1,52 @@
 'use strict'
 
+const alerts = require('../alerts/alerts')
+
 const indexRosterTemplate = require('../templates/rosters.handlebars')
 const showRosterTemplate = require('../templates/roster.handlebars')
 
 const indexRosterSuccess = data => {
-  $('#roster-message').text('Rosters retrieved successfully!')
+  alerts.newAlert('success', 'Rosters retrieved successfully', 1500)
   const indexRosterHtml = indexRosterTemplate({ rosters: data.rows })
   $('#roster-content').html(indexRosterHtml)
 }
 
 const indexRosterFailure = () => {
-  $('#roster-message').text('Retrieve rosters failed')
+  alerts.newAlert('danger', 'Retrieve rosters failed', 1500)
 }
 
 const showRosterSuccess = data => {
-  $('#roster-message').text('Roster retrieved successfully!')
+  alerts.newAlert('success', 'Roster retrieved successfully', 1500)
   const showRosterHtml = showRosterTemplate({ roster: data.roster })
   $('#roster-content').html(showRosterHtml)
 }
 
 const showRosterFailure = () => {
-  $('#roster-message').text('Retrieve roster failed')
+  alerts.newAlert('danger', 'Retrieve roster failed', 1500)
 }
 
 const createRosterSuccess = () => {
-  $('#roster-message').text('Roster created successfully!')
+  alerts.newAlert('success', 'Roster created successfully', 1500)
 }
 
 const createRosterFailure = () => {
-  $('#roster-message').text('Create roster failed')
+  alerts.newAlert('danger', 'Create rosters failed', 1500)
 }
 
 const updateRosterSuccess = () => {
-  $('#roster-message').text('Roster updated successfully!')
+  alerts.newAlert('success', 'Roster updated successfully', 1500)
 }
 
 const updateRosterFailure = () => {
-  $('#roster-message').text('Update roster failed')
+  alerts.newAlert('danger', 'Update roster failed', 1500)
 }
 
 const destroyRosterSuccess = () => {
-  $('#roster-message').text('Roster deleted successfully!')
+  alerts.newAlert('success', 'Roster deleted successfully', 1500)
 }
 
 const destroyRosterFailure = () => {
-  $('#roster-message').text('Delete roster failed')
+  alerts.newAlert('danger', 'Delete roster failed', 1500)
 }
 
 module.exports = {

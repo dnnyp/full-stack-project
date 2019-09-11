@@ -7,6 +7,10 @@ $espn-green: #3db54a;
 @import '~bootstrap/scss/bootstrap';
 
 body {
+  .message {
+    display: flex;
+  }
+
   .navbar-brand {
     font-family: 'ESP_Bold_Italic', sans-serif;
   }
