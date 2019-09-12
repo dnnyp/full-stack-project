@@ -35,7 +35,7 @@ const onCreateRoster = event => {
 }
 
 const onUpdateRosterSelect = () => {
-  const selection = $('#roster-table').bootstrapTable('getSelections')
+  const selection = $('#user-roster-table').bootstrapTable('getSelections')
 
   if (selection.length !== 0) {
     $('#rosterupdate-modal').modal('toggle')
@@ -62,7 +62,7 @@ const onUpdateRoster = event => {
 const onDestroyRoster = event => {
   event.preventDefault()
 
-  const selection = $('#roster-table').bootstrapTable('getSelections')
+  const selection = $('#user-roster-table').bootstrapTable('getSelections')
 
   if (store.user === null) {
     alerts.newAlert('danger', 'Please sign in', 1500)
