@@ -4,6 +4,7 @@
     <title>Fantassy Feedback</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="public/font.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <!-- Do not add `link` tags-->
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -281,6 +282,31 @@
             <section class="roster-container">
               <div id="roster-content" class="roster-content"></div>
             </section>
+            <table
+            id="roster-table"
+            data-class="table-striped"
+            data-click-to-select="true"
+            data-pagination="true"
+            data-search="true"
+            data-show-refresh="true"
+            data-show-search-button="true"
+            data-silent-sort="false"
+            data-single-select="true"
+            data-sortable="true"
+            data-thead-classes="thead-dark"
+            data-toggle="table"
+            data-url="http://localhost:4741/rosters">
+              <thead>
+                <tr>
+                  <th data-field="state" data-checkbox="true"></th>
+                  <th data-field="id" data-sortable="true">ID</th>
+                  <th data-field="name" data-sortable="true">Team Name</th>
+                  <th data-field="season" data-sortable="true">Season</th>
+                  <th data-field="league_size" data-sortable="true">League Size</th>
+                  <th data-field="scoring_format" data-sortable="true">Scoring Format</th>
+                </tr>
+              </thead>
+            </table>
           </div>
         </div>
       </div>
