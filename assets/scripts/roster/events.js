@@ -32,6 +32,19 @@ const onCreateRoster = event => {
     .catch(ui.createRosterFailure)
 }
 
+const onUpdateRosterSelect = () => {
+  const selection = $('#roster-table').bootstrapTable('getSelections')
+
+  if (selection.length !== 0) {
+    $('#rosterupdate-modal').modal('toggle')
+    $('#update-roster-id').val(selection[0].id)
+    $('#update-roster-name').val(selection[0].name)
+    $('#update-roster-season option:contains(' + selection[0].season + ')').attr('selected', 'selected')
+    $('#update-roster-size option:contains(' + selection[0].league_size + ')').attr('selected', 'selected')
+    $('#update-roster-scoring option:contains(' + selection[0].scoring_format + ')').attr('selected', 'selected')
+  }
+}
+
 const onUpdateRoster = event => {
   event.preventDefault()
 
@@ -55,6 +68,7 @@ const onDestroyRoster = event => {
 
 const addHandlers = () => {
   $('#create-roster').on('submit', onCreateRoster)
+  $('#update-roster-button').click('click', onUpdateRosterSelect)
   $('#update-roster').on('submit', onUpdateRoster)
   $('.roster-content').on('click', '.delete-roster', onDestroyRoster)
 }
@@ -63,6 +77,7 @@ module.exports = {
   onIndexRoster,
   onShowRoster,
   onCreateRoster,
+  onUpdateRosterSelect,
   onUpdateRoster,
   onDestroyRoster,
   addHandlers

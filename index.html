@@ -140,6 +140,72 @@
       </div>
     </div>
 
+    <!-- Roster modals -->
+    <div class="modal fade" id="rosterupdate-modal" tabindex="-1" role="dialog" aria-labelledby="rosterupdate-modal-label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="rosterupdate-modal-label">Update Roster</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-warning auth-warning" role="alert">
+              Please log in first.
+            </div>
+            <form id="update-roster">
+              <fieldset class="auth-fieldset">
+                <div class="form-row">
+                  <div class="form-group col-md-2">
+                    <label for="update-roster-name">Roster ID</label>
+                    <input type="text" class="form-control" id="update-roster-id" name="roster[id]" placeholder="123">
+                  </div>
+                  <div class="form-group col-md-10">
+                    <label for="update-roster-name">Team Name</label>
+                    <input type="text" class="form-control" id="update-roster-name" name="roster[name]" placeholder="Lights, Kamara, Action">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="update-roster-season">Season</label>
+                    <select class="form-control" id="update-roster-season" name="roster[season]">
+                      <option>2019</option>
+                      <option>2018</option>
+                      <option>2017</option>
+                      <option>2016</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="update-roster-size">League Size</label>
+                    <select class="form-control" id="update-roster-size" name="roster[league_size]">
+                      <option selected>Choose...</option>
+                      <option>6</option>
+                      <option>8</option>
+                      <option>10</option>
+                      <option>12</option>
+                      <option>14</option>
+                      <option>16</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="update-roster-scoring">Scoring Format</label>
+                    <select class="form-control" id="update-roster-scoring" name="roster[scoring_format]">
+                      <option selected>Choose...</option>
+                      <option>Standard Scoring</option>
+                      <option>Points Per Reception (PPR)</option>
+                      <option>Individual Defensive Player (IDP)</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Roster</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="accordion" id="roster-accordion">
       <div class="card">
         <div class="card-header" id="create-roster-header">
@@ -199,69 +265,6 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-header" id="update-roster-header">
-          <h2 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#update-roster-collapse" aria-expanded="false" aria-controls="update-roster-collapse">
-              Update a Roster
-            </button>
-          </h2>
-        </div>
-        <div id="update-roster-collapse" class="collapse" aria-labelledby="update-roster-header" data-parent="#roster-accordion">
-          <div class="card-body">
-            <form id="update-roster">
-              <div class="alert alert-warning auth-warning" role="alert">
-                Please log in first.
-              </div>
-              <fieldset class="auth-fieldset">
-                <div class="form-row">
-                  <div class="form-group col-md-2">
-                    <label for="update-roster-name">Roster ID</label>
-                    <input type="text" class="form-control" id="update-roster-id" name="roster[id]" placeholder="123">
-                  </div>
-                  <div class="form-group col-md-10">
-                    <label for="update-roster-name">Team Name</label>
-                    <input type="text" class="form-control" id="update-roster-name" name="roster[name]" placeholder="Lights, Kamara, Action">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="update-roster-season">Season</label>
-                    <select class="form-control" id="update-roster-season" name="roster[season]">
-                      <option>2019</option>
-                      <option>2018</option>
-                      <option>2017</option>
-                      <option>2016</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="update-roster-size">League Size</label>
-                    <select class="form-control" id="update-roster-size" name="roster[league_size]">
-                      <option selected>Choose...</option>
-                      <option>6</option>
-                      <option>8</option>
-                      <option>10</option>
-                      <option>12</option>
-                      <option>14</option>
-                      <option>16</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="update-roster-scoring">Scoring Format</label>
-                    <select class="form-control" id="update-roster-scoring" name="roster[scoring_format]">
-                      <option selected>Choose...</option>
-                      <option>Standard Scoring</option>
-                      <option>Points Per Reception (PPR)</option>
-                      <option>Individual Defensive Player (IDP)</option>
-                    </select>
-                  </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Update Roster</button>
-              </fieldset>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="card">
         <div class="card-header" id="show-roster-header">
           <h2 class="mb-0">
             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#show-roster-body" aria-expanded="true" aria-controls="show-roster-body">
@@ -271,6 +274,10 @@
         </div>
         <div id="show-roster-body" class="collapse show" aria-labelledby="show-roster-header" data-parent="#roster-accordion">
           <div class="card-body">
+            <div id="roster-toolbar">
+              <button id="update-roster-button" type="submit" class="btn btn-primary">Update Roster</button>
+              <button id="delete-roster-button" type="submit" class="btn btn-primary">Delete Roster</button>
+            </div>
             <table
             id="roster-table"
             data-class="table-striped"
@@ -278,12 +285,12 @@
             data-pagination="true"
             data-search="true"
             data-show-refresh="true"
-            data-show-search-button="true"
             data-silent-sort="false"
             data-single-select="true"
             data-sortable="true"
             data-thead-classes="thead-dark"
             data-toggle="table"
+            data-toolbar="#roster-toolbar"
             data-url="http://localhost:4741/rosters">
               <thead>
                 <tr>
