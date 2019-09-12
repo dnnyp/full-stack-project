@@ -35,6 +35,7 @@ const createRosterFailure = () => {
 
 const updateRosterSuccess = () => {
   alerts.newAlert('success', 'Roster updated successfully', 1500)
+  $('#roster-table').bootstrapTable('refresh')
 }
 
 const updateRosterFailure = () => {
