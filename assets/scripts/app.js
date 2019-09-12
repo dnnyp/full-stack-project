@@ -9,8 +9,10 @@
 const authEvents = require('./auth/events')
 const authUi = require('./auth/ui')
 const rosterEvents = require('./roster/events')
+const store = require('./store')
 
 $(() => {
+  store.user = null
   authEvents.addHandlers()
   authUi.hideOnSignout()
   rosterEvents.addHandlers()

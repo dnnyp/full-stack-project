@@ -44,6 +44,7 @@ const updateRosterFailure = () => {
 
 const destroyRosterSuccess = () => {
   alerts.newAlert('success', 'Roster deleted successfully', 1500)
+  $('#roster-table').bootstrapTable('refresh')
 }
 
 const destroyRosterFailure = () => {

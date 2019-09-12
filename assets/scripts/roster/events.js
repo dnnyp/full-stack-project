@@ -3,6 +3,8 @@
 const api = require('./api')
 const getFormFields = require('./../../../lib/get-form-fields')
 const ui = require('./ui')
+const store = require('./../store')
+const alerts = require('../alerts/alerts')
 
 const onIndexRoster = event => {
   event.preventDefault()
@@ -42,6 +44,8 @@ const onUpdateRosterSelect = () => {
     $('#update-roster-season option:contains(' + selection[0].season + ')').attr('selected', 'selected')
     $('#update-roster-size option:contains(' + selection[0].league_size + ')').attr('selected', 'selected')
     $('#update-roster-scoring option:contains(' + selection[0].scoring_format + ')').attr('selected', 'selected')
+  } else {
+    alerts.newAlert('danger', 'Please select a roster', 1500)
   }
 }
 
@@ -58,19 +62,26 @@ const onUpdateRoster = event => {
 const onDestroyRoster = event => {
   event.preventDefault()
 
-  const id = $(event.target).data('id')
+  const selection = $('#roster-table').bootstrapTable('getSelections')
 
-  api.destroyRoster(id)
-    .then(ui.destroyRosterSuccess)
-    .then(() => onIndexRoster(event))
-    .catch(ui.destroyRosterFailure)
+  if (store.user === null) {
+    alerts.newAlert('danger', 'Please sign in', 1500)
+  }
+  if (selection.length === 0) {
+    alerts.newAlert('danger', 'Please select a roster', 1500)
+  }
+  if (selection.length !== 0 && store.user !== null) {
+    api.destroyRoster(selection[0].id)
+      .then(ui.destroyRosterSuccess)
+      .catch(ui.destroyRosterFailure)
+  }
 }
 
 const addHandlers = () => {
   $('#create-roster').on('submit', onCreateRoster)
   $('#update-roster-button').click('click', onUpdateRosterSelect)
   $('#update-roster').on('submit', onUpdateRoster)
-  $('.roster-content').on('click', '.delete-roster', onDestroyRoster)
+  $('#destroy-roster-button').on('click', onDestroyRoster)
 }
 
 module.exports = {
