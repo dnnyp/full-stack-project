@@ -56,8 +56,6 @@ const onDestroyRoster = event => {
 const addHandlers = () => {
   $('#create-roster').on('submit', onCreateRoster)
   $('#update-roster').on('submit', onUpdateRoster)
-  $('#show-roster').on('submit', onShowRoster)
-  $('#index-roster').on('click', onIndexRoster)
   $('.roster-content').on('click', '.delete-roster', onDestroyRoster)
 }
 
