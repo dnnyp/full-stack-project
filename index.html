@@ -206,6 +206,7 @@
       </div>
     </div>
 
+    <!-- Roster accordion -->
     <div class="accordion" id="roster-accordion">
       <div class="card">
         <div class="card-header" id="create-roster-header">
@@ -267,12 +268,12 @@
       <div class="card">
         <div class="card-header" id="user-roster-header">
           <h2 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#user-roster-body" aria-expanded="true" aria-controls="user-roster-body">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#user-roster-body" aria-expanded="false" aria-controls="user-roster-body">
               View Your Rosters
             </button>
           </h2>
         </div>
-        <div id="user-roster-body" class="collapse show" aria-labelledby="user-roster-header" data-parent="#roster-accordion">
+        <div id="user-roster-body" class="collapse" aria-labelledby="user-roster-header" data-parent="#roster-accordion">
           <div class="card-body">
             <div class="alert alert-warning auth-warning" role="alert">
               Please log in first.
@@ -295,6 +296,44 @@
             data-thead-classes="thead-dark"
             data-toggle="table"
             data-toolbar="#user-roster-toolbar"
+            data-url="http://localhost:4741/rosters">
+              <thead>
+                <tr>
+                  <th data-field="state" data-checkbox="true"></th>
+                  <th data-field="id" data-sortable="true">ID</th>
+                  <th data-field="name" data-sortable="true">Team Name</th>
+                  <th data-field="season" data-sortable="true">Season</th>
+                  <th data-field="league_size" data-sortable="true">League Size</th>
+                  <th data-field="scoring_format" data-sortable="true">Scoring Format</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="all-roster-header">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#all-roster-body" aria-expanded="true" aria-controls="all-roster-body">
+              View All Rosters
+            </button>
+          </h2>
+        </div>
+        <div id="all-roster-body" class="collapse show" aria-labelledby="all-roster-header" data-parent="#roster-accordion">
+          <div class="card-body">
+            <table
+            id="view-roster-table"
+            data-class="table-striped"
+            data-click-to-select="true"
+            data-pagination="true"
+            data-search="true"
+            data-show-refresh="true"
+            data-silent-sort="false"
+            data-single-select="true"
+            data-sortable="true"
+            data-thead-classes="thead-dark"
+            data-toggle="table"
+            data-toolbar="#all-roster-toolbar"
             data-url="http://localhost:4741/rosters">
               <thead>
                 <tr>

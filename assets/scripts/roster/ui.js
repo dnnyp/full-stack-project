@@ -28,6 +28,7 @@ const showRosterFailure = () => {
 const createRosterSuccess = () => {
   alerts.newAlert('success', 'Roster created successfully', 1500)
   $('#user-roster-table').bootstrapTable('refresh')
+  $('#all-roster-table').bootstrapTable('refresh')
 }
 
 const createRosterFailure = () => {
@@ -37,6 +38,7 @@ const createRosterFailure = () => {
 const updateRosterSuccess = () => {
   alerts.newAlert('success', 'Roster updated successfully', 1500)
   $('#user-roster-table').bootstrapTable('refresh')
+  $('#all-roster-table').bootstrapTable('refresh')
 }
 
 const updateRosterFailure = () => {
@@ -46,6 +48,7 @@ const updateRosterFailure = () => {
 const destroyRosterSuccess = () => {
   alerts.newAlert('success', 'Roster deleted successfully', 1500)
   $('#user-roster-table').bootstrapTable('refresh')
+  $('#all-roster-table').bootstrapTable('refresh')
 }
 
 const destroyRosterFailure = () => {
