@@ -38,12 +38,7 @@ const onUpdateRosterSelect = () => {
   const selection = $('#user-roster-table').bootstrapTable('getSelections')
 
   if (selection.length !== 0) {
-    $('#rosterupdate-modal').modal('toggle')
-    $('#update-roster-id').val(selection[0].id)
-    $('#update-roster-name').val(selection[0].name)
-    $('#update-roster-season option:contains(' + selection[0].season + ')').attr('selected', 'selected')
-    $('#update-roster-size option:contains(' + selection[0].league_size + ')').attr('selected', 'selected')
-    $('#update-roster-scoring option:contains(' + selection[0].scoring_format + ')').attr('selected', 'selected')
+    ui.populateUpdateForm(selection)
   } else {
     alerts.newAlert('danger', 'Please select a roster', 1500)
   }
