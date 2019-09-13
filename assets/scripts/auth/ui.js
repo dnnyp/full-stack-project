@@ -64,6 +64,8 @@ const hideOnSignout = () => {
   $('#changepw-button').addClass('d-none')
   $('#signout-button').addClass('d-none')
   $('#user-roster-table').bootstrapTable('filterBy', {user_id: -1})
+  $('#update-roster-button').prop('disabled', true)
+  $('#destroy-roster-button').prop('disabled', true)
   $('.auth-fieldset').prop('disabled', true)
 }
 
@@ -71,6 +73,8 @@ const showOnSignin = () => {
   $('#changepw-button').removeClass('d-none')
   $('#signout-button').removeClass('d-none')
   $('#user-roster-table').bootstrapTable('filterBy', {user_id: store.user.id})
+  $('#update-roster-button').prop('disabled', false)
+  $('#destroy-roster-button').prop('disabled', false)
   $('.auth-fieldset').prop('disabled', false)
 }
 

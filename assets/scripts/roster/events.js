@@ -64,9 +64,6 @@ const onDestroyRoster = event => {
 
   const selection = $('#user-roster-table').bootstrapTable('getSelections')
 
-  if (store.user === null) {
-    alerts.newAlert('danger', 'Please sign in', 1500)
-  }
   if (selection.length === 0) {
     alerts.newAlert('danger', 'Please select a roster', 1500)
   }
