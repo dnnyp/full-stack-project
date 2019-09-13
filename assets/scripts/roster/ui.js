@@ -28,8 +28,7 @@ const showRosterFailure = () => {
 const createRosterSuccess = () => {
   alerts.newAlert('success', 'Roster created successfully', 1500)
   $('#create-roster').trigger('reset')
-  $('#user-roster-table').bootstrapTable('refresh')
-  $('#all-roster-table').bootstrapTable('refresh')
+  refreshRosterTables()
 }
 
 const createRosterFailure = () => {
@@ -39,8 +38,7 @@ const createRosterFailure = () => {
 const updateRosterSuccess = () => {
   alerts.newAlert('success', 'Roster updated successfully', 1500)
   $('#update-roster').trigger('reset')
-  $('#user-roster-table').bootstrapTable('refresh')
-  $('#all-roster-table').bootstrapTable('refresh')
+  refreshRosterTables()
 }
 
 const updateRosterFailure = () => {
@@ -49,12 +47,16 @@ const updateRosterFailure = () => {
 
 const destroyRosterSuccess = () => {
   alerts.newAlert('success', 'Roster deleted successfully', 1500)
-  $('#user-roster-table').bootstrapTable('refresh')
-  $('#all-roster-table').bootstrapTable('refresh')
+  refreshRosterTables()
 }
 
 const destroyRosterFailure = () => {
   alerts.newAlert('danger', 'Delete roster failed', 1500)
+}
+
+const refreshRosterTables = () => {
+  $('#user-roster-table').bootstrapTable('refresh')
+  $('#all-roster-table').bootstrapTable('refresh')
 }
 
 module.exports = {
@@ -67,5 +69,6 @@ module.exports = {
   updateRosterSuccess,
   updateRosterFailure,
   destroyRosterSuccess,
-  destroyRosterFailure
+  destroyRosterFailure,
+  refreshRosterTables
 }
