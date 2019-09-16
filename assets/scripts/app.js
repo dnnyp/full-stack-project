@@ -14,6 +14,6 @@ const store = require('./store')
 $(() => {
   store.user = null
   authEvents.addHandlers()
-  authUi.hideOnSignout()
+  authUi.onSignout()
   rosterEvents.addHandlers()
 })

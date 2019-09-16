@@ -17,8 +17,7 @@ const signUpFailure = () => {
 
 const signInSuccess = data => {
   store.user = data.user
-  hideOnSignin()
-  showOnSignin()
+  onSignin()
   $('#signin-modal').modal('toggle')
   $('#signin-error').collapse('hide')
   $('#sign-in').trigger('reset')
@@ -45,8 +44,7 @@ const changePasswordFailure = () => {
 
 const signOutSuccess = () => {
   store.user = null
-  hideOnSignout()
-  showOnSignout()
+  onSignout()
   alerts.newAlert('success', 'Signed out successfully', 2000)
 }
 
@@ -54,34 +52,43 @@ const signOutFailure = () => {
   alerts.newAlert('danger', 'Sign out failed', 1500)
 }
 
-const hideOnSignin = () => {
-  $('#signup-button').addClass('d-none')
-  $('#signin-button').addClass('d-none')
-  $('.auth-warning').addClass('d-none')
-}
-
-const hideOnSignout = () => {
+const onSignout = () => {
+  // hide signed in actions
   $('#changepw-button').addClass('d-none')
   $('#signout-button').addClass('d-none')
-  $('#user-roster-table').bootstrapTable('filterBy', {user_id: -1})
-  $('#update-roster-button').prop('disabled', true)
-  $('#destroy-roster-button').prop('disabled', true)
-  $('.auth-fieldset').prop('disabled', true)
-}
-
-const showOnSignin = () => {
-  $('#changepw-button').removeClass('d-none')
-  $('#signout-button').removeClass('d-none')
-  $('#user-roster-table').bootstrapTable('filterBy', {user_id: store.user.id})
-  $('#update-roster-button').prop('disabled', false)
-  $('#destroy-roster-button').prop('disabled', false)
-  $('.auth-fieldset').prop('disabled', false)
-}
-
-const showOnSignout = () => {
+  // show signed out actions
   $('#signup-button').removeClass('d-none')
   $('#signin-button').removeClass('d-none')
+  // show signed out warning
   $('.auth-warning').removeClass('d-none')
+  // hide data in user roster table (filter by user_id -1)
+  $('#user-roster-table').bootstrapTable('filterBy', {user_id: -1})
+  // disable update and delete buttons
+  $('#update-roster-button').prop('disabled', true)
+  $('#destroy-roster-button').prop('disabled', true)
+  // disable create roster form
+  $('.auth-fieldset').prop('disabled', true)
+  // reset forms
+  $('#create-roster').trigger('reset')
+  $('#update-roster').trigger('reset')
+}
+
+const onSignin = () => {
+  // hide signed out actions
+  $('#signup-button').addClass('d-none')
+  $('#signin-button').addClass('d-none')
+  // hide signed out warning
+  $('.auth-warning').addClass('d-none')
+  // show signed in actions
+  $('#changepw-button').removeClass('d-none')
+  $('#signout-button').removeClass('d-none')
+  // show user data in user roster table
+  $('#user-roster-table').bootstrapTable('filterBy', {user_id: store.user.id})
+  // enable update and delete roster buttons
+  $('#update-roster-button').prop('disabled', false)
+  $('#destroy-roster-button').prop('disabled', false)
+  // enable create roster form
+  $('.auth-fieldset').prop('disabled', false)
 }
 
 module.exports = {
@@ -93,8 +100,6 @@ module.exports = {
   changePasswordFailure,
   signOutSuccess,
   signOutFailure,
-  hideOnSignin,
-  hideOnSignout,
-  showOnSignin,
-  showOnSignout
+  onSignout,
+  onSignin
 }
