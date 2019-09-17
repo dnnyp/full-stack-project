@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fantasy Feedback</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="public/font.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <!-- Do not add `link` tags-->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Do not add `script` tags-->
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2b2d2c">
+      <a class="navbar-brand m-1 mr-3" href="#">Fantasy Feedback</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <button class="btn btn-primary m-2" data-toggle="modal" data-target="#signup-modal" id="signup-button">Sign Up</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-primary m-2" data-toggle="modal" data-target="#signin-modal" id="signin-button">Sign In</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-primary mr-2" data-toggle="modal" data-target="#changepw-modal" id="changepw-button">Change Password</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-primary mr-2" id="signout-button">Sign Out</button>
+          </li>
+        </ul>
+        <div id="message-container" class="message"></div>
+      </div>
+    </nav>
+
+    <!-- Authentication modals -->
+    <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="signup-modal-label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signup-modal-label">Sign Up</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="collapse" id="signup-error">
+              <div class="card card-body text-danger border-danger p-1 mb-2">
+                Sorry, unable to register. Please check your credentials.
+              </div>
+            </div>
+            <form id="sign-up">
+              <div class="form-group">
+                <label for="signup-email">Email</label>
+                <input type="email" class="form-control" id="signup-email" name="credentials[email]" aria-describedby="emailHelp" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input type="password" class="form-control" id="signup-password" name="credentials[password]" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="signup-password-confirm">Password Confirmation</label>
+                <input type="password" class="form-control" id="signup-password-confirm" name="credentials[password_confirmation]" placeholder="Password Confirmation">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="signin-modal-label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signin-modal-label">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="collapse" id="signin-error">
+              <div class="card card-body text-danger border-danger p-1 mb-2">
+                Sorry, unable to sign in. Please check your credentials.
+              </div>
+            </div>
+            <form id="sign-in">
+              <div class="form-group">
+                <label for="signin-email">Email</label>
+                <input type="email" class="form-control" id="signin-email" name="credentials[email]" aria-describedby="emailHelp" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="signin-password">Password</label>
+                <input type="password" class="form-control" id="signin-password" name="credentials[password]" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="changepw-modal" tabindex="-1" role="dialog" aria-labelledby="changepw-modal-label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="changepw-modal-label">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="collapse" id="changepw-error">
+              <div class="card card-body text-danger border-danger p-1 mb-2">
+                Sorry, unable to change password. Please use correct password.
+              </div>
+            </div>
+            <form id="change-password">
+              <div class="form-group">
+                <label for="old-password">Old Password</label>
+                <input type="password" class="form-control" id="old-password" name="passwords[old]" placeholder="Old Password">
+              </div>
+              <div class="form-group">
+                <label for="new-password">New Password</label>
+                <input type="password" class="form-control" id="new-password" name="passwords[new]" placeholder="New Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Roster modals -->
+    <div class="modal fade" id="rosterupdate-modal" tabindex="-1" role="dialog" aria-labelledby="rosterupdate-modal-label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="rosterupdate-modal-label">Update Roster</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="update-roster">
+              <div class="alert alert-warning auth-warning" role="alert">
+                Please log in first.
+              </div>
+              <fieldset class="auth-fieldset">
+                <div class="form-row">
+                  <div class="form-group col-md-2">
+                    <label for="update-roster-name">Roster ID</label>
+                    <input type="text" class="form-control" id="update-roster-id" name="roster[id]" placeholder="123">
+                  </div>
+                  <div class="form-group col-md-10">
+                    <label for="update-roster-name">Team Name</label>
+                    <input type="text" class="form-control" id="update-roster-name" name="roster[name]" placeholder="Lights, Kamara, Action">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="update-roster-season">Season</label>
+                    <select class="form-control" id="update-roster-season" name="roster[season]">
+                      <option>2019</option>
+                      <option>2018</option>
+                      <option>2017</option>
+                      <option>2016</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="update-roster-size">League Size</label>
+                    <select class="form-control" id="update-roster-size" name="roster[league_size]">
+                      <option selected>Choose...</option>
+                      <option>6</option>
+                      <option>8</option>
+                      <option>10</option>
+                      <option>12</option>
+                      <option>14</option>
+                      <option>16</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="update-roster-scoring">Scoring Format</label>
+                    <select class="form-control" id="update-roster-scoring" name="roster[scoring_format]">
+                      <option selected>Choose...</option>
+                      <option>Standard Scoring</option>
+                      <option>Points Per Reception (PPR)</option>
+                      <option>Individual Defensive Player (IDP)</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Roster</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Roster accordion -->
+    <div class="accordion" id="roster-accordion">
+      <div class="card">
+        <div class="card-header" id="create-roster-header">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#create-roster-collapse" aria-expanded="false" aria-controls="create-roster-collapse">
+              Create a New Roster
+            </button>
+          </h2>
+        </div>
+        <div id="create-roster-collapse" class="collapse" aria-labelledby="create-roster-header" data-parent="#roster-accordion">
+          <div class="card-body">
+            <div class="alert alert-warning auth-warning" role="alert">
+              Please log in first.
+            </div>
+            <form id="create-roster">
+              <fieldset class="auth-fieldset">
+                <div class="form-group">
+                  <label for="create-roster-name">Team Name</label>
+                  <input type="text" class="form-control" id="create-roster-name" name="roster[name]" placeholder="Lights, Kamara, Action">
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="create-roster-season">Season</label>
+                    <select class="form-control" id="create-roster-season" name="roster[season]">
+                      <option>2019</option>
+                      <option>2018</option>
+                      <option>2017</option>
+                      <option>2016</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="create-roster-size">League Size</label>
+                    <select class="form-control" id="create-roster-size" name="roster[league_size]">
+                      <option>6</option>
+                      <option>8</option>
+                      <option>10</option>
+                      <option>12</option>
+                      <option>14</option>
+                      <option>16</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="create-roster-scoring">Scoring Format</label>
+                    <select class="form-control" id="create-roster-scoring" name="roster[scoring_format]">
+                      <option>Standard Scoring</option>
+                      <option>Points Per Reception (PPR)</option>
+                      <option>Individual Defensive Player (IDP)</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Roster</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="user-roster-header">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#user-roster-body" aria-expanded="false" aria-controls="user-roster-body">
+              View Your Rosters
+            </button>
+          </h2>
+        </div>
+        <div id="user-roster-body" class="collapse" aria-labelledby="user-roster-header" data-parent="#roster-accordion">
+          <div class="card-body">
+            <div class="alert alert-warning auth-warning" role="alert">
+              Please log in first.
+            </div>
+            <div id="user-roster-toolbar">
+              <button id="update-roster-button" type="submit" class="btn btn-primary">Update Roster</button>
+              <button id="destroy-roster-button" type="submit" class="btn btn-primary">Delete Roster</button>
+            </div>
+            <table
+            id="user-roster-table"
+            data-class="table-striped"
+            data-click-to-select="true"
+            data-page-list="[5, 20, 50, 100, 200, All]"
+            data-page-size="5"
+            data-pagination="true"
+            data-show-refresh="true"
+            data-silent-sort="false"
+            data-single-select="true"
+            data-sortable="true"
+            data-thead-classes="thead-dark"
+            data-toggle="table"
+            data-toolbar="#user-roster-toolbar"
+            data-url="https://morning-shore-48477.herokuapp.com/rosters">
+              <thead>
+                <tr>
+                  <th data-field="state" data-checkbox="true"></th>
+                  <th data-field="id" data-sortable="true">ID</th>
+                  <th data-field="name" data-sortable="true">Team Name</th>
+                  <th data-field="season" data-sortable="true">Season</th>
+                  <th data-field="league_size" data-sortable="true">League Size</th>
+                  <th data-field="scoring_format" data-sortable="true">Scoring Format</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="all-roster-header">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#all-roster-body" aria-expanded="true" aria-controls="all-roster-body">
+              View All Rosters
+            </button>
+          </h2>
+        </div>
+        <div id="all-roster-body" class="collapse show" aria-labelledby="all-roster-header" data-parent="#roster-accordion">
+          <div class="card-body">
+            <table
+            id="all-roster-table"
+            data-class="table-striped"
+            data-pagination="true"
+            data-search="true"
+            data-show-refresh="true"
+            data-silent-sort="false"
+            data-sortable="true"
+            data-thead-classes="thead-dark"
+            data-toggle="table"
+            data-toolbar="#all-roster-toolbar"
+            data-url="https://morning-shore-48477.herokuapp.com/rosters">
+              <thead>
+                <tr>
+                  <th data-field="id" data-sortable="true">ID</th>
+                  <th data-field="name" data-sortable="true">Team Name</th>
+                  <th data-field="season" data-sortable="true">Season</th>
+                  <th data-field="league_size" data-sortable="true">League Size</th>
+                  <th data-field="scoring_format" data-sortable="true">Scoring Format</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
